@@ -1,0 +1,390 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+  min-height: 100vh;
+  width: 100%;
+  /* Linear gradient uvek postavljamo kad imamo pozadinsku sliku */
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+    url(banner.png);
+  /* Cover - pokriva ceo element! */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+/* Navbar */
+nav {
+  display: flex;
+  padding: 2% 6%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav img {
+  width: 150px;
+}
+.nav-links {
+  flex: 1;
+  text-align: right;
+}
+
+.nav-links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.nav-links ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.nav-links ul li::after {
+  /* Contet dajemo da bi zauzelo neki prosto i dajemo mu visinu 3 px */
+  content: "";
+  width: 0;
+  height: 2px;
+  background: #f44336;
+  display: block;
+  margin: auto;
+}
+.nav-links ul li:hover::after {
+  /*With prethodno postavili na 0 da bi nakon hovera mu na hoveru dali width 100% uz 0,5 s vreme trajanja  */
+  width: 100%;
+  transition: 0.5s;
+}
+.hidden {
+  display: none;
+}
+
+/* Header Body */
+
+.text-box {
+  width: 90%;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.text-box h1 {
+  font-size: 62px;
+}
+
+.text-box p {
+  margin: 10px 0 40px;
+  font-size: 14px;
+  color: #fff;
+}
+.hero-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid;
+  padding: 12px 34px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+.hero-btn:hover {
+  position: static;
+  transition: 0.5s;
+  padding: 8px 28px;
+  color: #f44336;
+}
+nav .fa {
+  display: none;
+}
+/* Responsivness */
+/* Ovo se primenjuje samo kad je stranica manja od 700px */
+@media (max-width: 700px) {
+  .text-box h1 {
+    font-size: 20px;
+  }
+  .nav-links ul li {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    background: #f44336;
+    height: 100vh;
+    width: 200px;
+    top: 0;
+    right: -200px;
+    text-align: left;
+    z-index: 2;
+    transition: 1s;
+    /* Show menu stays visible when opacated */
+    /* opacity: 90%; */
+  }
+  nav .fa {
+    display: block;
+    color: #fff;
+    margin: 10px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  .nav-links ul {
+    padding: 30px;
+  }
+}
+
+/* Course */
+
+.course {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 100px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+p {
+  color: #777;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 22px;
+  padding: 10px;
+}
+
+.row {
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.course-col {
+  flex-basis: 30%;
+  background: #fff3f3;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  padding: 20px 12px;
+  box-sizing: border-box;
+  box-shadow: 10px 5px 5px #777;
+  transition: 0.5s;
+}
+
+h3 {
+  text-align: center;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.course-col:hover {
+  color: hsl(0, 1%, 67%);
+  cursor: pointer;
+  box-shadow: 10px 5px 5px hsl(0, 1%, 67%);
+}
+
+@media (max-width: 700px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+/* CAMPUS */
+
+.campus {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.campus-col {
+  flex-basis: 33%;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  position: relative;
+  /* OVERFLOW NE ZABORAVI,JAKO KORISNO */
+  overflow: hidden;
+}
+.campus-col img {
+  display: block;
+  width: 100%;
+}
+
+.layer {
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+
+.layer:hover {
+  background: rgba(226, 0, 0, 0.7);
+}
+
+.row {
+  column-gap: 5%;
+  flex-direction: row;
+}
+/* JAKO KORISNO OBRATI PAZNJU */
+.layer h3 {
+  width: 100%;
+  font-size: 26px;
+  font-weight: 500;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  left: 0;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: 0.5s;
+}
+.layer:hover h3 {
+  left: 60%;
+  opacity: 1;
+  text-shadow: 5px 5px 5px rgb(34, 179, 147);
+}
+
+@media (max-width: 700px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+/* FACILITIES */
+/* NAPRAVITI DA SE TEKST OTKRIVA KAD SE HOVERUJE NA SLIKU */
+.facilities {
+  width: 80%;
+  padding-top: 100px;
+  margin: auto;
+  text-align: center;
+}
+.facilities-col {
+  flex-basis: 31%;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  text-align: left;
+}
+
+.facilities-col img {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+}
+.facilities h3 {
+  margin-top: 16px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.facilities p {
+  padding: 0;
+}
+
+/* TESTIMONIALS */
+
+.testimonials {
+  width: 80%;
+  text-align: center;
+  margin: auto;
+  padding-top: 100px;
+}
+
+.testimonial-col {
+  flex-basis: 44%;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  text-align: left;
+  background: #fff3f3;
+  padding: 25px;
+  cursor: pointer;
+  display: flex;
+}
+.testimonial-col:hover {
+  transition: 0.5s;
+  box-shadow: 5px 5px 5px #777;
+  cursor: pointer;
+}
+.testimonial-col img {
+  margin-top: 20px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 30px;
+  margin-left: 5px;
+}
+
+.testimonial-col p {
+  padding: 0;
+}
+
+.testimonial-col h3 {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.star {
+  display: flex;
+  justify-content: space-between;
+}
+
+.star p {
+  align-self: center;
+}
+
+@media (max-width: 700px) {
+  .testimonials {
+    margin: auto;
+  }
+  .testimonial-col p {
+    text-align: left;
+  }
+}
+
+/* CTA */
+
+.cta {
+  width: 80%;
+  margin: 100px auto;
+  text-align: center;
+  padding-top: 100px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(banner2.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.cta h1 {
+  color: white;
+  margin-bottom: 40px;
+  padding: 0;
+}
+
+@media (max-width: 700px) {
+  .cta h1 {
+    font-size: 24px;
+  }
+}
+
+/* Foooter */
+
+.footer {
+  padding: 30px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.footer h4 {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
